@@ -1,0 +1,31 @@
+<?php
+function task_schema() {
+  $schema['task'] = array(
+    'fields' => array(
+      'id'=>array(
+        'type'=>'serial',
+        'not null' => TRUE,
+      ),
+      'task'=>array(
+        'type' => 'varchar',
+        'length' => 40,
+        'not null' => TRUE,
+      ),
+      'description'=>array(
+        'type' => 'varchar',
+        'length' => 40,
+        'not null' => TRUE,
+      ),
+
+      'duration'=>array(
+        'type'=> 'varchar',
+        'length'=>25,
+        'not null'=>TRUE,
+      ),
+
+
+    ),
+    'primary key' => array('id'),
+  );
+  return $schema;
+}

@@ -1,0 +1,32 @@
+
+task.form:
+ path: '/custom/mytask'
+ defaults:
+   _title: 'ADD TASK'
+   _form: '\Drupal\task\Form\TaskForm'
+ requirements:
+   _permission: 'access content'
+
+hello_world:
+    path: '/task/welcome'
+    defaults:
+        _controller: Drupal\task\Controller\ThankyouController::hello
+    requirements:
+        _permission: 'access content'
+
+task.getdetails:
+ path: '/task/getdetails'
+ defaults:
+   _title: 'Fetch detail of Employee'
+   _controller: '\Drupal\task\Controller\ThankyouController::getDetails'
+ requirements:
+   _permission: 'access content'
+
+
+task.display:
+  path: '/task/table'
+  defaults:
+    _controller: '\Drupal\task\Controller\DisplayTableController::display'
+    _title: 'Custom Table Data'
+  requirements:
+    _permission: 'access content'

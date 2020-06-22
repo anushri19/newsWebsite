@@ -1,0 +1,6 @@
+
+name: Task
+description: A task form to enter user tasks.
+core: 8.x
+package: Custom
+type: module

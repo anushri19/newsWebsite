@@ -1,0 +1,55 @@
+<?php
+
+
+use Drupal\views\ViewExecutable;
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+function demo_view_views_pre_render(ViewExecutable $view) {
+ if ($view->id() == 'test') {
+  $view->setTitle('User task');
+ }
+}
+
+
+function demo_view_views_query_alter(ViewExecutable $view, QueryPluginBase $query)
+
+ {
+ //   // $query->add_where(5,'node__field_description', $nid, 'NOT IN');
+	if($view->id() == 'test'){
+		$query->orderby = array(
+      array(
+        'field' => 'title',
+        'direction' => 'ASC',
+      )
+    );
+}
+		
+		// $query->orderBy('timestamp', 'DESC');
+
+
+}
+// function demo_view_views_query_alter(&$view,&$query) {
+//  //   // $query->add_where(5,'node__field_description', $nid, 'NOT IN');
+// 	if($query->alterMetaData['view']->name == "test3"){
+		
+// 		$query->addOrderBy('node_field_data', 'nid', ASC);
+
+
+// }}
+// function demo_view_views_pre_render(\Drupal\views\ViewExecutable $view) {
+//   if($view->id() == 'field'){
+//     foreach($view->result as $value){
+//       kint($value->_entity->get('title')->value);
+//       $value->_entity->set('title', 'check' . time());
+//     }
+//   }
+// }
+// function hook_views_query_alter(&$view, &$query) {
+//    // $query->add_where(5,'node__field_description', $nid, 'NOT IN');
+// 	if($query->alterMetaData['view']->name == "test3"){
+// 		print_r($view);
+// 		$query->addOrderBy('node_field_data', 'title', ASC);
+
+
+// }}
+
+
